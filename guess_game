@@ -1,0 +1,23 @@
+#!/bin/bash
+
+fileN=`ls -l | wc -l`
+
+function guessgame() {
+  
+  guess=-1
+  echo -e "Guess game...guess the number of directories!!"
+
+  while [[ $guess -ne $fileN ]]; do
+  	read -p "Enter your guess number: " guess
+  	if [[ $guess -lt $fileN ]]; then
+  		echo "Too Low. Guess Higher..."
+  	elif [[ $guess -gt $fileN ]]; then
+  		echo "Too High. Guess Lower..."
+  	fi
+  done
+
+  echo "Congrats!! That's a correct guess..."
+
+}
+
+guessgame
